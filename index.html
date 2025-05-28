@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İsbir Sentetik - Anasayfa</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#0056a6", secondary: "#e63946" },
+                    borderRadius: {
+                        none: "0px",
+                        sm: "4px",
+                        DEFAULT: "8px",
+                        md: "12px",
+                        lg: "16px",
+                        xl: "20px",
+                        "2xl": "24px",
+                        "3xl": "32px",
+                        full: "9999px",
+                        button: "8px",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10%;
+            color: white;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .product-category:hover .overlay {
+            opacity: 1;
+        }
+
+        .product-category:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="./index.html" class="text-3xl font-['Pacifico'] text-primary mr-10">İsbir Sentetik</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="./index.html" class="font-medium text-gray-800 hover:text-primary transition">Anasayfa</a>
+                    <a href="./hakkimizda.html" class="font-medium text-gray-800 hover:text-primary transition">Hakkımızda</a>
+                    <a href="./urunler.html" class="font-medium text-gray-800 hover:text-primary transition">Ürünler</a>
+                    <a href="./arge.html" class="font-medium text-gray-800 hover:text-primary transition">Arge</a>
+                    <a href="./iletisim.html" class="font-medium text-gray-800 hover:text-primary transition">İletişim</a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="mobile-menu-button" class="md:hidden w-10 h-10 flex items-center justify-center">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 border-t">
+        <div class="flex flex-col space-y-3">
+            <a href="./index.html" class="font-medium text-gray-800 hover:text-primary transition">Anasayfa</a>
+            <a href="./hakkimizda.html" class="font-medium text-gray-800 hover:text-primary transition">Hakkımızda</a>
+            <a href="./urunler.html" class="font-medium text-gray-800 hover:text-primary transition">Ürünler</a>
+            <a href="./arge.html" class="font-medium text-gray-800 hover:text-primary transition">Arge</a>
+            <a href="./iletisim.html" class="font-medium text-gray-800 hover:text-primary transition">İletişim</a>
+        </div>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', function() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuButton.innerHTML = '<i class="ri-close-line text-xl"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuButton.innerHTML = '<i class="ri-menu-line text-xl"></i>';
+            }
+        });
+    });
+</script>
+
+
+
+
+    <!-- Main Slider/Banner -->
+    <section class="slider-container h-[600px]">
+        <div class="slider h-full">
+            <div class="slide h-full">
+                <img src="./assets/images/anasayfa.jpg"
+                    alt="İsbir Sentetik Üretim" class="w-full h-full object-cover object-top" />
+                <div class="slide-content">
+                    <h1 class="text-5xl font-bold max-w-xl mb-4">
+                        Sentetik Ürünlerde Kalite ve Güven
+                    </h1>
+                    <p class="text-xl max-w-xl mb-8">
+                        30 yılı aşkın tecrübemizle Türkiye'nin lider sentetik ürün
+                        üreticisiyiz.
+                    </p>
+                    <a href="#"
+                        class="bg-primary text-white px-8 py-3 rounded-button inline-block font-medium hover:bg-primary/90 transition whitespace-nowrap">Detaylı
+                        Bilgi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">
+                        İsbir Sentetik Hakkında
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        1992 yılında kurulan İsbir Sentetik, Türkiye'nin önde gelen
+                        sentetik ürün üreticilerinden biridir. Firmamız, yüksek kaliteli
+                        polyester elyaf, polipropilen, naylon ve diğer sentetik
+                        malzemelerin üretiminde uzmanlaşmıştır.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Modern üretim tesislerimiz ve deneyimli ekibimizle, tekstil,
+                        otomotiv, inşaat ve mobilya sektörlerine yönelik geniş bir ürün
+                        yelpazesi sunuyoruz. Sürdürülebilirlik ve inovasyon ilkelerimiz
+                        doğrultusunda, müşterilerimize en kaliteli ürünleri en rekabetçi
+                        fiyatlarla sunmak için sürekli çalışıyoruz.
+                    </p>
+                    <a href="#"
+                        class="bg-primary text-white px-8 py-3 rounded-button inline-block font-medium hover:bg-primary/90 transition whitespace-nowrap">Daha
+                        Fazla</a>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="./assets/images/hakkimizda.jpg"
+                        alt="İsbir Sentetik Fabrika" class="w-full h-auto rounded-lg shadow-lg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    Ürün Kategorilerimiz
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Geniş ürün yelpazemiz ile tekstil, otomotiv, inşaat ve mobilya
+                    sektörlerine yönelik çözümler sunuyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Category 1 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/polyester.jpg"
+                            alt="Polyester Elyaf"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Polyester Elyaf
+                            </h3>
+                            <p class="text-white mb-4">
+                                Yüksek dayanıklılık ve esneklik sağlayan premium polyester
+                                elyaf ürünlerimiz.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">Polyester Elyaf</h3>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/poli.jpg"
+                            alt="Polipropilen Ürünler"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Polipropilen Ürünler
+                            </h3>
+                            <p class="text-white mb-4">
+                                Kimyasal direnci yüksek, hafif ve dayanıklı polipropilen
+                                ürünlerimiz.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">
+                            Polipropilen Ürünler
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/naylon.jpg"
+                            alt="Naylon Ürünler"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Naylon Ürünler
+                            </h3>
+                            <p class="text-white mb-4">
+                                Yüksek mukavemetli ve aşınmaya dayanıklı naylon ürünlerimiz.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">Naylon Ürünler</h3>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/otomotiv.jpg"
+                            alt="Otomotiv Tekstili"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Otomotiv Tekstili
+                            </h3>
+                            <p class="text-white mb-4">
+                                Otomotiv sektörü için özel olarak geliştirilen sentetik kumaş
+                                ve malzemeler.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">Otomotiv Tekstili</h3>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/insaat.jpg"
+                            alt="İnşaat Malzemeleri"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                İnşaat Malzemeleri
+                            </h3>
+                            <p class="text-white mb-4">
+                                İnşaat sektörü için güçlendirme ve izolasyon amaçlı sentetik
+                                malzemeler.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">
+                            İnşaat Malzemeleri
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="product-category rounded-lg overflow-hidden shadow-md group relative cursor-pointer">
+                    <div class="overflow-hidden h-64">
+                        <img src="./assets/images/mobilya.jpg"
+                            alt="Mobilya Tekstili"
+                            class="w-full h-full object-cover object-top transition-transform duration-500" />
+                    </div>
+                    <div
+                        class="overlay absolute inset-0 bg-primary/70 opacity-0 transition-opacity duration-300 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                Mobilya Tekstili
+                            </h3>
+                            <p class="text-white mb-4">
+                                Mobilya sektörü için dayanıklı ve leke tutmayan sentetik
+                                kumaşlar.
+                            </p>
+                            <a href="#"
+                                class="text-white border border-white px-6 py-2 rounded-button inline-block hover:bg-white hover:text-primary transition whitespace-nowrap">İncele</a>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="text-xl font-bold text-gray-800">Mobilya Tekstili</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Neden Biz?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    İsbir Sentetik olarak müşterilerimize en iyi hizmeti sunmak için
+                    çalışıyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-medal-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Kalite</h3>
+                    <p class="text-gray-600">
+                        ISO 9001 sertifikalı üretim süreçlerimiz ile en yüksek kalite
+                        standartlarında ürünler sunuyoruz.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-shield-check-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Güven</h3>
+                    <p class="text-gray-600">
+                        30 yılı aşkın tecrübemiz ve binlerce memnun müşterimiz ile
+                        güvenilir bir iş ortağıyız.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-recycle-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">
+                        Sürdürülebilirlik
+                    </h3>
+                    <p class="text-gray-600">
+                        Çevre dostu üretim süreçleri ve geri dönüştürülebilir ürünler ile
+                        sürdürülebilir bir gelecek için çalışıyoruz.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="ri-customer-service-2-line text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">
+                        Müşteri Memnuniyeti
+                    </h3>
+                    <p class="text-gray-600">
+                        Müşteri odaklı yaklaşımımız ile ihtiyaçlarınıza özel çözümler
+                        sunuyoruz.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-24 parallax relative" style="background-image: url('./assets/images/contact-bg.jpg')">
+        <div class="absolute inset-0 bg-primary/70"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-2xl mx-auto text-center text-white">
+                <h2 class="text-4xl font-bold mb-6">Bizimle İletişime Geçin</h2>
+                <p class="text-xl mb-8">
+                    Ürünlerimiz hakkında detaylı bilgi almak veya özel çözümler için
+                    bizimle iletişime geçebilirsiniz.
+                </p>
+                <a href="#"
+                    class="bg-white text-primary px-8 py-3 rounded-button inline-block font-medium hover:bg-gray-100 transition whitespace-nowrap">İletişim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">İsbir Sentetik</h3>
+                    <p class="text-gray-400 mb-6">
+                        Türkiye'nin lider sentetik ürün üreticisi olarak 30 yılı aşkın
+                        süredir hizmet vermekteyiz.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Hızlı Bağlantılar</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Anasayfa</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Hakkımızda</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Ürünler</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Hizmetler</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Ürünlerimiz</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Polyester Elyaf</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Polipropilen Ürünler</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Naylon Ürünler</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Otomotiv Tekstili</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">İnşaat Malzemeleri</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 hover:text-white transition">Mobilya Tekstili</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">İletişim Bilgileri</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                                <i class="ri-map-pin-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">Organize Sanayi Bölgesi, 1. Cadde No: 123, 34555 İstanbul,
+                                Türkiye</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-phone-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">+90 212 123 45 67</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-mail-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">info@isbirsentetik.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center mr-3">
+                                <i class="ri-time-line text-primary"></i>
+                            </div>
+                            <span class="text-gray-400">Pazartesi - Cuma: 08:30 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; 2025 İsbir Sentetik. Tüm hakları saklıdır.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition">Gizlilik Politikası</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition">Kullanım Koşulları</a>
+                        <a href="#" class="text-gray-500 text-sm hover:text-white transition">Çerez Politikası</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script id="slider-script">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Slider functionality can be added here if needed
+            // For now, we're just showing a single slide
+        });
+    </script>
+</body>
+
+</html>
